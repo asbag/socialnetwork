@@ -1,0 +1,5 @@
+id,firstname,surname,surname2,email,age,birthdate,username,is_active,password
+NULL,David,Mezquíriz,Osés,davidmezquiriz@gmail.com,40,09/10/1990,david,true,david
+NULL,John,Smith,NULL,johnsmith@gmail.com,23,09/10/1990,john,true,john
+NULL,Iosuke,Irie,Kio,iosukeirie@gmail.com,32,09/10/1990,riosuke,true,riosuke
+NULL,Gregorio,Paltinieri,Pirlo,gregoriopaltinieri@gmail.com,21,09/10/1990,gregorio,true,gregorio

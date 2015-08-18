@@ -1,0 +1,22 @@
+security:
+
+    providers:
+        our_db_provider:
+            entity:
+                class: tximistacliente1UserBundle:User
+                # if you're using multiple entity managers
+                # manager_name: customer
+    encoders:
+        tximista\cliente1\UserBundle\Entity\User:
+            algorithm: bcrypt
+    firewalls:
+        default:
+            pattern:    ^/
+            http_basic: ~
+            provider: our_db_provider
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+    access_control:
+            #Require ROLE_ADMIN from /admin
+            - { path: ^/admin, roles: ROLE_ADMIN }

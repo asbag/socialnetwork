@@ -1,0 +1,7 @@
+tximistacliente1_user:
+    resource: "@tximistacliente1UserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
