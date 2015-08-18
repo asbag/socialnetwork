@@ -12,6 +12,7 @@
 	<buildpathentry excluding="**/skeleton/|**/Test*/|**/CG/**/Fixture/" kind="src" path="vendor/symfony/swiftmailer-bundle"/>
 	<buildpathentry excluding="**/skeleton/|**/Test*/|**/CG/**/Fixture/" kind="src" path="vendor/symfony/monolog-bundle"/>
 	<buildpathentry kind="src" path="vendor/composer"/>
+	<buildpathentry excluding="**/skeleton/|**/Test*/|**/CG/**/Fixture/" kind="src" path="vendor/friendsofsymfony/user-bundle"/>
 	<buildpathentry excluding="**/skeleton/|**/Test*/|**/CG/**/Fixture/" kind="src" path="vendor/symfony/symfony/src/Symfony/Bundle"/>
 	<buildpathentry excluding="**/skeleton/|**/Test*/|**/CG/**/Fixture/" kind="src" path="src"/>
 	<buildpathentry excluding="**/skeleton/|**/Test*/|**/CG/**/Fixture/" kind="src" path="vendor/doctrine/lexer/lib"/>
