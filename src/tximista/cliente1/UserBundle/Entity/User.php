@@ -3,16 +3,15 @@
 namespace tximista\cliente1\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+use FOS\UserBundle\Entity\User as BaseUser;
 
 /**
  * User
  *
- * @ORM\Table(name="User")
- * @ORM\Entity(repositoryClass="tximista\cliente1\UserBundle\Entity\UserRepository")
+ * @ORM\Table(name="fos_user")
+ * @ORM\Entity
  */
-class User implements AdvancedUserInterface, \Serializable
-{
+class User extends BaseUser {
     /**
      * @var integer
      *
@@ -20,70 +19,70 @@ class User implements AdvancedUserInterface, \Serializable
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="firstname", type="string", length=45)
      */
-    private $firstname;
+    protected $firstname;
 
     /**
      * @var string
      *
      * @ORM\Column(name="surname", type="string", length=45)
      */
-    private $surname;
+    protected $surname;
 
     /**
      * @var string
      *
      * @ORM\Column(name="surname2", type="string", length=45)
      */
-    private $surname2;
+    protected $surname2;
 
     /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=45)
      */
-    private $email;
+    protected $email;
 
     /**
      * @var string
      *
      * @ORM\Column(name="age", type="string", length=45)
      */
-    private $age;
+    protected $age;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="birthdate", type="date")
      */
-    private $birthdate;
+    protected $birthdate;
 
     /**
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=45)
      */
-    private $username;
+    protected $username;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="is_active", type="boolean")
      */
-    private $isActive;
+    protected $isActive;
 
     /**
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=45)
      */
-    private $password;
+    protected $password;
 
 
     public function __construct() {
@@ -139,23 +138,6 @@ class User implements AdvancedUserInterface, \Serializable
         return $this->firstname;
     }
 
-    /**
-     * @see AdvancedUserInterface\
-     */
-    public function isAccountNonExpired()
-    {
-    	return true;
-    }
-    
-    public function isAccountNonLocked()
-    {
-    	return true;
-    }
-    
-    public function isCredentialsNonExpired()
-    {
-    	return true;
-    }
     
     public function isEnabled()
     {
