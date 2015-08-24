@@ -4,6 +4,8 @@ namespace tximista\cliente1\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Entity\User as BaseUser;
+use Symfony\Component\Validator\Validation;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -20,43 +22,7 @@ class User extends BaseUser {
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="firstname", type="string", length=45)
-     */
-    protected $firstname;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="surname", type="string", length=45)
-     */
-    protected $surname;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="surname2", type="string", length=45)
-     */
-    protected $surname2;
-
- 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="age", type="string", length=45)
-     */
-    protected $age;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="birthdate", type="date")
-     */
-    protected $birthdate;
-
+    
 
     /**
      * @var boolean
@@ -66,6 +32,16 @@ class User extends BaseUser {
     protected $isActive;
 
 
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="name", type="string")
+     * @Assert\NotBlank(message="Please enter your name.", groups={"Registration", "Profile"})
+     * @Assert\Length(min="3", max="255", minMessage="The name is too short.", maxMessage="The name is too long.",  groups={"Registration", "Profile"})
+     */
+    protected $name;
+    
+    
     public function __construct() {
     	parent::__construct();
     	$this->isActive = true;
@@ -90,28 +66,31 @@ class User extends BaseUser {
         return $this->id;
     }
 
+    
     /**
-     * Set firstname
+     * Set name
      *
-     * @param string $firstname
+     * @param string $name
      * @return User
      */
-    public function setFirstname($firstname)
+    public function setName($name)
     {
-        $this->firstname = $firstname;
-
-        return $this;
+    	$this->name = $name;
+    
+    	return $this;
     }
-
+    
     /**
-     * Get firstname
+     * Get name
      *
-     * @return string 
+     * @return string
      */
-    public function getFirstname()
+    public function getName()
     {
-        return $this->firstname;
+    	return $this->name;
     }
+    
+    
 
     
     public function isEnabled()
@@ -126,8 +105,7 @@ class User extends BaseUser {
     {
     	return serialize(array(
     			$this->id,
-    			$this->login,
-    			$this->password,
+    			$this->name,
     			$this->isActive
     			// see section on salt below
     			// $this->salt,
@@ -140,8 +118,7 @@ class User extends BaseUser {
     {
     	list (
     			$this->id,
-    			$this->login,
-    			$this->password,
+    			$this->name,
     			$this->isActive
     			// see section on salt below
     			// $this->salt

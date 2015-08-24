@@ -18,4 +18,8 @@ class DefaultController extends Controller
     	$this->denyAccessUnlessGranted('ROLE_ADMIN', null, 'Unable to access this page!');
     	return new Response('Admin page!');
     }
+    
+    public function homeAction() {
+    	//show default web site
+    }
 }

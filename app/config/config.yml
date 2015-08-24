@@ -82,3 +82,6 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main # The firewall name which you configured in security.yml
     user_class: tximista\cliente1\UserBundle\Entity\User
+    registration:
+         form:
+             type:    tximistacliente1_user_registration
